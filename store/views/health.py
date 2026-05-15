@@ -11,3 +11,17 @@ def health_check(request):
         {'Service': 'ShopApi', 
          'status': 'ok',
          'version': '1.0'})
+
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def system_info(request):
+    return Response(
+        {
+            'service': 'ShopApi',
+            'status': 'running',
+            'environment': 'production',
+            'version': '1.1'
+        }
+    )
